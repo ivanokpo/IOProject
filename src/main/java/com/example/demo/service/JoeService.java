@@ -22,6 +22,8 @@ public interface JoeService {
 
 	public Joe updatePodcast(int id, Joe podcast);
 	
+	public List<Joe> favoritesP();
+	
 	
 	
 	

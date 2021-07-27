@@ -3,19 +3,44 @@ package com.example.demo.user;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+import javax.persistence.Entity;
+
+@Entity
 public class Joe {
 	
-	@Column(name = "podcast_Number", unique = true)
-	private int podcast_Number;
+	@Id // Primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT
+	private Integer id;
+	
+	@Column(unique = true)
+	private Integer podcastNumber;
 	
 	private String guests;
 	
 	private String category;
 	
-	private int id;
 	
 	
+	private int rating;
+	
+	private String favorite;
+	
+	
+	
+	
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
 
 	public int getId() {
 		return id;
@@ -25,12 +50,12 @@ public class Joe {
 		this.id = id;
 	}
 
-	public int getPodcast_Number() {
-		return podcast_Number;
+	public int getPodcastNumber() {
+		return podcastNumber;
 	}
 
-	public void setPodcast_Number(int podcast_Number) {
-		this.podcast_Number = podcast_Number;
+	public void setPodcastNumber(int podcastNumber) {
+		this.podcastNumber = podcastNumber;
 	}
 
 	public String getGuests() {
@@ -49,6 +74,15 @@ public class Joe {
 		this.category = category;
 	}
 	
+	public String getFavorite() {
+		return favorite;
+	}
+
+	public void setFavorite(String favorite) {
+		this.favorite = favorite;
+	}
+	
+	
 	
 
 	public Joe() {
@@ -56,24 +90,25 @@ public class Joe {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Joe(int id, int podcast_Number, String guests, String category) {
+	public Joe(int id, int podcast_Number, String guests, String category, int rating, String favorite) {
 		super();
-		this.podcast_Number = podcast_Number;
+		this.podcastNumber = podcast_Number;
 		this.guests = guests;
 		this.category = category;
 		this.id = id;
+		this.rating = rating;
+		this.setFavorite(favorite);
 	}
 	
 	
 
-	@Override
 	public String toString() {
-		return "JRE Podcast, Episode: " + podcast_Number + ", With guests " + guests + ", category: " + category;
+		return "JRE Podcast, Episode: " + podcastNumber + ", With guests " + guests + ", category: " + category + " with a rating of " + rating;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(category, guests, podcast_Number);
+		return Objects.hash(category, guests, podcastNumber);
 	}
 
 	@Override
@@ -86,8 +121,9 @@ public class Joe {
 			return false;
 		Joe other = (Joe) obj;
 		return Objects.equals(category, other.category) && Objects.equals(guests, other.guests)
-				&& Objects.equals(podcast_Number, other.podcast_Number);
+				&& podcastNumber == other.podcastNumber && rating == other.rating;
 	}
+
 	
 	 
 	

@@ -14,7 +14,7 @@ public interface JoeRepo extends JpaRepository<Joe, Integer> {
 		
 		List<Joe> findByCategory(String category);
 		
-		List<Joe> findByGuest(String guest);
+		List<Joe> findByGuests(String guests);
 
 	
 }
