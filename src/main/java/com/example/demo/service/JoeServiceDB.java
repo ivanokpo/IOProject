@@ -37,7 +37,7 @@ public class JoeServiceDB implements JoeService {
 	}
 
 	@Override
-	public Joe findPodcastById(int id) {
+	public Joe findPodcastById(Integer id) {
 		return this.repo.findById(id).get();
 	}
 
@@ -58,7 +58,7 @@ public class JoeServiceDB implements JoeService {
 	}
 
 	@Override
-	public String deletePodcast(int id) {
+	public String deletePodcast(Integer id) {
 		this.repo.deleteById(id);
 		
 		if (this.repo.existsById(id)) {
@@ -69,7 +69,7 @@ public class JoeServiceDB implements JoeService {
 	}
 
 	@Override
-	public Joe updatePodcast(int id, Joe podcast) {
+	public Joe updatePodcast(Integer id, Joe podcast) {
 		Joe found = this.repo.findById(id).get();
 		// modify record
 		found.setPodcastNumber(podcast.getPodcastNumber());

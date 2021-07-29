@@ -18,7 +18,7 @@ public class Joe {
 	private Integer id;
 	
 	@Column(unique = true)
-	private Integer podcastNumber;
+	private Integer podcast_Number;
 	
 	private String guests;
 	
@@ -26,36 +26,24 @@ public class Joe {
 	
 	
 	
-	private int rating;
+	private Integer rating;
 	
 	private String favorite;
-	
-	
-	
-	
 
-	public int getRating() {
-		return rating;
-	}
-
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getPodcastNumber() {
-		return podcastNumber;
+	public Integer getPodcastNumber() {
+		return podcast_Number;
 	}
 
-	public void setPodcastNumber(int podcastNumber) {
-		this.podcastNumber = podcastNumber;
+	public void setPodcastNumber(Integer podcast_Number) {
+		this.podcast_Number = podcast_Number;
 	}
 
 	public String getGuests() {
@@ -73,7 +61,15 @@ public class Joe {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
+
+	public Integer getRating() {
+		return rating;
+	}
+
+	public void setRating(Integer rating) {
+		this.rating = rating;
+	}
+
 	public String getFavorite() {
 		return favorite;
 	}
@@ -81,34 +77,29 @@ public class Joe {
 	public void setFavorite(String favorite) {
 		this.favorite = favorite;
 	}
-	
-	
-	
 
-	public Joe() {
+	public Joe(Integer podcast_Number, String guests, String category, Integer rating, String favorite) {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Joe(int id, int podcast_Number, String guests, String category, int rating, String favorite) {
-		super();
-		this.podcastNumber = podcast_Number;
+		this.podcast_Number = podcast_Number;
 		this.guests = guests;
 		this.category = category;
-		this.id = id;
 		this.rating = rating;
-		this.setFavorite(favorite);
+		this.favorite = favorite;
 	}
-	
-	
 
-	public String toString() {
-		return "JRE Podcast, Episode: " + podcastNumber + ", With guests " + guests + ", category: " + category + " with a rating of " + rating;
+	public Joe(Integer id, Integer podcast_Number, String guests, String category, Integer rating, String favorite) {
+		super();
+		this.id = id;
+		this.podcast_Number = podcast_Number;
+		this.guests = guests;
+		this.category = category;
+		this.rating = rating;
+		this.favorite = favorite;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(category, guests, podcastNumber);
+		return Objects.hash(category, favorite, guests, id, podcast_Number, rating);
 	}
 
 	@Override
@@ -120,13 +111,17 @@ public class Joe {
 		if (getClass() != obj.getClass())
 			return false;
 		Joe other = (Joe) obj;
-		return Objects.equals(category, other.category) && Objects.equals(guests, other.guests)
-				&& podcastNumber == other.podcastNumber && rating == other.rating;
+		return Objects.equals(category, other.category) && Objects.equals(favorite, other.favorite)
+				&& Objects.equals(guests, other.guests) && id == other.id && podcast_Number == other.podcast_Number
+				&& rating == other.rating;
 	}
 
+	public Joe() {
+		super();
+	}
 	
-	 
 	
 	
-
 }
+
+	

@@ -53,7 +53,7 @@ public class JoeController {
 		
 		
 		@GetMapping("/getPodcastId/{id}")
-		public ResponseEntity<Joe> getPodcastId(@PathVariable int id) {
+		public ResponseEntity<Joe> getPodcastId(@PathVariable Integer id) {
 			Joe body = this.service.findPodcastById(id);
 			return new ResponseEntity<>(body, HttpStatus.OK);
 		}
@@ -66,7 +66,7 @@ public class JoeController {
 		}
 		
 		@DeleteMapping("/deletePodcast/{id}")
-		public ResponseEntity<String> deletePodcast(@PathVariable int id) {
+		public ResponseEntity<String> deletePodcast(@PathVariable Integer id) {
 			String body = this.service.deletePodcast(id);
 			return new ResponseEntity<>(body, HttpStatus.NO_CONTENT);
 		}
@@ -85,7 +85,7 @@ public class JoeController {
 
 		
 	@PutMapping("/updatePodcast/{id}")
-	public ResponseEntity<Joe> updatePodcast(@PathVariable int id, @RequestBody Joe podcast ) { //newDog
+	public ResponseEntity<Joe> updatePodcast(@PathVariable Integer id, @RequestBody Joe podcast ) { //newDog
 		Joe body = this.service.updatePodcast(id, podcast);
 		return new ResponseEntity<>(body,HttpStatus.ACCEPTED);
 			
