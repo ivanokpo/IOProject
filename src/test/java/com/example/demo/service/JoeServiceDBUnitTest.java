@@ -34,11 +34,11 @@ public class JoeServiceDBUnitTest {
 		// GIVEN
 		int id = 1;
 
-		Joe testPodcast = new Joe(id, 1664,"Josh Dubin","Activists", 5, "yes"); // returned by FindById
-		Joe testNewPod = new Joe(id, 1664,"Josh Dubin, David Blaine","Activists", 5, "yes"); // new dog data
+		Joe testPodcast = new Joe(id, 1664,"Josh Dubin","Activists", 5, "yes"); 
+		Joe testNewPod = new Joe(id, 1664,"Josh Dubin, David Blaine","Activists", 5, "yes"); // new podcast data
 
 		// WHEN
-		Mockito.when(this.repo.findById(id)).thenReturn(Optional.of(testPodcast)); // dw about this for now tbh
+		Mockito.when(this.repo.findById(id)).thenReturn(Optional.of(testPodcast)); 
 		Mockito.when(this.repo.save(new Joe(id, 1664,"Josh Dubin, David Blaine","Activists", 5, "yes"))).thenReturn(testNewPod);
 
 		Joe actual = this.service.updatePodcast(id, testNewPod);
