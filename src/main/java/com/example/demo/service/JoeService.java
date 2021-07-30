@@ -10,7 +10,7 @@ public interface JoeService {
 	
 	public Joe findPodcastByGuest(String guest);
 	
-	public Joe findPodcastById(int id);
+	public Joe findPodcastById(Integer id);
 	
 	public Joe findPodcastByNum(String number);
 	
@@ -18,9 +18,11 @@ public interface JoeService {
 	
 	public List<Joe> podcasts();
 	
-	public String deletePodcast(int id);
+	public String deletePodcast(Integer id);
 
-	public Joe updatePodcast(int id, Joe podcast);
+	public Joe updatePodcast(Integer id, Joe podcast);
+	
+	public List<Joe> favoritesP();
 	
 	
 	
