@@ -252,4 +252,3 @@ document.querySelector("section#updateSection > form").addEventListener('submit'
 
 getPodcasts();
 
-//working

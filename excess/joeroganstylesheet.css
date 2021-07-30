@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+  }
+  h1 {
+    color:rgb(48, 170, 0);
+    text-align: center;
+    font-family: monospace;
+  }
+
+  h3 {
+    color: rgb(48, 170, 0);
+   text-align: center;
+   font-family: monospace;
+   border-style: ridge;
+   border-color: green black; /* green top, green bottom, black left, black right */
+   border-width: thin;
+   
+  }
+
+  ul {
+    color: white;
+    font-size: xx-large;
+    font-weight: 300;
+    text-align: center;
+    font-family: monospace;
+  }
