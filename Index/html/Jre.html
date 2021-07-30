@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        form>input {
+            display: block;
+        }
+
+        
+
+        body {
+        background-image: url("https://th.bing.com/th/id/OIP.qsNxqsy_ELbQdDNBNhnIRgHaHa?pid=ImgDet&rs=1");
+        height: 100vh;
+
+        color:grey;
+
+        
+        }
+
+        label, h2, p, div, h1 {
+            color:rgba(255, 68, 0, 0.822);
+            border: 2px solid #73AD21;
+            border-radius: 25px;
+            border-color:rgba(205, 92, 92, 0.178);
+        }
+
+        .card {
+            background-color: rgba(70, 70, 70, 0.61);
+            border-radius: 25px;
+            
+        }
+
+        h1 {
+            border: 2px solid #73AD21;
+            border-radius: 25px;
+            border-color: rgba(255, 0, 0, 0.26);
+        }
+         
+        input[type=text]:focus{
+            outline: 2px solid rgba(255, 8, 0, 0.589);     
+        }
+
+        
+        button{
+            background-color: indigo;
+        }
+
+
+
+        
+    </style>
+</head>
+<body class="container">
+
+    <!-- <nav class="navbar" >
+        <a href="link/to/page" class="navbar-brand">Archives</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="link/to/page" class="nav-link">Log</a>
+            </li>
+            <li class="nav-item">
+                <a href="link/to/page" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="link/to/page" class="nav-link">Favorites</a>
+            </li>
+        </ul>
+    </nav> -->
+    
+    <main class="row">
+    <img style="width: 600px; height: auto;" src="../110342-middle-removebg-preview.png"
+    class="rotate linear infinite"
+    />
+    <h1 style="text-align: center" >Pandora's Box</h1>
+    <br>
+    <br>
+    
+    <section class="col-3 row-4">
+
+        
+
+        <section style = "color: rgb(0, 0, 0)" id="getAllSection" class="card-group row row-">
+            <h2 >PODCAST LOG</h2>
+            <div id= "outputDiv" ></div>   
+        </section>
+
+
+    </section>
+    
+
+    
+
+    <section id="getById" style= "color:rgb(0, 0, 0)" class="col-5">
+        <h2>PODCASTS BY ID</h2>
+        <label for="Id" class="form-label">ID:</label>
+        <input type="number" name="podId" id="podId" min="1" class="form-control " style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);">
+        <button onclick="getPodId();" class="btn btn-primary mr-1" style="background-color:rgb(236, 99, 81); border-color: lightcoral;" > GET POD </button>
+        <div id="getByIdOutput" class="card-group row row-cols-1 g-2"></div>
+        
+    </section>
+    
+    
+   
+
+    <section id= "postSection" style= "color: rgb(0, 0, 0);" class="col-3"> 
+
+        <h2>POST-A-POD</h2>
+
+            
+            <form>
+                
+                <label for="podNumb" class="form-label" style="font-size: x-large;">Number:</label>
+                <input type="number" id="podNumb" name="number" class="form-control" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
+                
+                <label for="podGuests" class="form-label" style="font-size: x-large;">Guests:</label>
+                <input type="text" id="podGuests" name="guests" class="form-control" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
+                <br>
+
+                <label for="category" class= "form-label" style="font-size: x-large;">Category:</label> 
+                <div id = "category" class = "center-block">
+                <input type="radio" id="archery" name="category" value="archery">
+                <label for="archery">Archery</label><br>
+
+                <input type="radio" id="comedy" name="category" value="comedy">
+                <label for="psychology">Comedy</label><br>
+
+                <input type="radio" id="hunting" name="category" value="hunting">
+                <label for="hunting">Hunting</label><br>
+
+                <input type="radio" id="mma" name="category" value="mma">
+                <label for="mma">MMA</label><br>
+
+                <input type="radio" id="psychology" name="category" value="psychology">
+                <label for="psychology">Psychology</label><br>
+
+                <input type="radio" id="war" name="category" value="war">
+                <label for="war">War</label>
+                </div>
+                <br>
+                
+                <label for="rating" class= "form-label" style="font-size: x-large;">Rating:</label>   
+                <div id = "rating" class = "center-block">
+                <input type="radio" id="1" name="rating" value=1>
+                <label for="1">1</label><br>
+                <input type="radio" id="2" name="rating" value=2>
+                <label for="2">2</label><br>
+                <input type="radio" id="3" name="rating" value=3>
+                <label for="3">3</label><br>
+                <input type="radio" id="4" name="rating" value=4>
+                <label for="4">4</label><br>
+                <input type="radio" id="5" name="rating" value=5>
+                <label for="5">5</label><br>
+                </div>
+
+                <br>
+                
+                
+                <label for="favorite" class="form-label" style="font-size: x-large;" >Favourite:</label>
+                
+                <div id = "favorite">
+                <input type="radio" id="yes" name="favorite" value="yes">
+                <label for="yes">Yes</label><br>
+                <input type="radio" id="no" name="favorite" value="no">
+                <label for="No">No</label><br>
+                </div>
+
+
+                <button type="reset" class="btn btn-primary" style="background-color:rgb(236, 99, 81);  border-color: lightcoral;" >Reset</button>
+                <button type="submit" class="btn btn-primary" style="background-color:rgb(236, 99, 81);  border-color: lightcoral;">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <section id= "updateSection" style= "color: rgb(0, 0, 0);" class="col-3"> 
+
+        <h2>UPDATE-A-POD</h2>
+            <form>
+                <label for="podNumb" class="form-label" style="font-size: x-large;">Number:</label>
+                <input type="number" id="podNumb" name="number" class="form-control" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
+                
+                <label for= "podGuests" class="form-label" style="font-size: x-large;">Guests:</label>
+                <input type="text" id="podGuests" name="guests" class="form-control" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
+                <br>
+
+                <label for="category" class= "form-label" style="font-size: x-large;">Category:</label> 
+                <div id = "category">
+                <input type="radio" id="archery" name="category" value="archery">
+                <label for="archery">Archery</label><br>
+
+                <input type="radio" id="comedy" name="category" value="comedy">
+                <label for="psychology">Comedy</label><br>
+
+                <input type="radio" id="hunting" name="category" value="hunting">
+                <label for="hunting">Hunting</label><br>
+
+                <input type="radio" id="mma" name="category" value="mma">
+                <label for="mma">MMA</label><br>
+
+                <input type="radio" id="psychology" name="category" value="psychology">
+                <label for="psychology">Psychology</label><br>
+
+                <input type="radio" id="war" name="category" value="war">
+                <label for="war">War</label>
+                </div>
+                <br>
+                
+                <label for="rating" class= "form-label" style="font-size: x-large;">Rating:</label>   
+                <div id = "rating">
+                <input type="radio" id="1" name="rating" value=1>
+                <label for="1">1</label><br>
+                <input type="radio" id="2" name="rating" value=2>
+                <label for="2">2</label><br>
+                <input type="radio" id="3" name="rating" value=3>
+                <label for="3">3</label><br>
+                <input type="radio" id="4" name="rating" value=4>
+                <label for="4">4</label><br>
+                <input type="radio" id="5" name="rating" value=5>
+                <label for="5">5</label><br>
+                </div>
+
+                <br>
+                
+                
+                <label for="favorite" class="form-label" style="font-size: x-large;" >Favourite:</label>
+                
+                <div id = "favorite">
+                <input type="radio" id="yes" name="favorite" value="yes">
+                <label for="yes">Yes</label><br>
+                <input type="radio" id="no" name="favorite" value="no">
+                <label for="No">No</label><br>
+                </div>
+
+                <button type="reset" class="btn btn-primary" style="background-color:rgb(236, 99, 81);  border-color: lightcoral;">Reset</button>
+                <button type="submit" class="btn btn-primary" style="background-color:rgb(236, 99, 81);  border-color: lightcoral;">Submit</button>
+            </form>
+
+    </section>
+    <section id="favorites" class="col-3">
+        <h2>FAVOURITES</h2>
+    </section>
+    
+ 
+    <script src="../Javascript/Jre.js"></script>
+</main>
+</body>
+</html>
+

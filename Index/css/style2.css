@@ -1,0 +1,70 @@
+body {
+    background-color: black;
+    font-family: monospace;
+    background-blend-mode:unset;
+}
+  h1 {
+    color:rgb(48, 170, 0);
+    
+   text-align: center;
+
+   font-family: monospace;
+   z-index: index 4;;
+  }
+
+  h3 {
+    color: rgb(48, 170, 0);
+   
+    text-align: center;
+
+    font-family: monospace;
+    z-index:3;
+    
+}
+
+  section {
+      text-align: center;
+      font-family: monospace;
+      z-index:2;
+  }
+
+
+
+img {
+   
+        width: 0%;
+        margin: auto;
+        display: block;
+        z-index:1;
+      
+}
+  .rotate {
+    animation: rotation 20s;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+  .linear {
+    animation-timing-function: linear;
+  }
+
+  .infinite {
+    animation-iteration-count: infinite;
+  }
+
+nav  a{
+
+  color: aliceblue;
+  
+}
+
+nav li{
+  color: aliceblue;
+}
