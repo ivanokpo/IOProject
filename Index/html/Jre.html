@@ -55,27 +55,15 @@
             background-color: indigo;
         }
 
+        input[type='radio']:checked{
+        background-color: indianred;
+        }
 
 
         
     </style>
 </head>
 <body class="container">
-
-    <!-- <nav class="navbar" >
-        <a href="link/to/page" class="navbar-brand">Archives</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a href="link/to/page" class="nav-link">Log</a>
-            </li>
-            <li class="nav-item">
-                <a href="link/to/page" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="link/to/page" class="nav-link">Favorites</a>
-            </li>
-        </ul>
-    </nav> -->
     
     <main class="row">
     <img style="width: 600px; height: auto;" src="../110342-middle-removebg-preview.png"
@@ -98,12 +86,12 @@
     </section>
     
 
-    
+   
 
     <section id="getById" style= "color:rgb(0, 0, 0)" class="col-5">
         <h2>PODCASTS BY ID</h2>
         <label for="Id" class="form-label">ID:</label>
-        <input type="number" name="podId" id="podId" min="1" class="form-control " style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);">
+        <input type="number" name="podId" id="podId" min="1" class="form-control text-secondary" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);">
         <button onclick="getPodId();" class="btn btn-primary mr-1" style="background-color:rgb(236, 99, 81); border-color: lightcoral;" > GET POD </button>
         <div id="getByIdOutput" class="card-group row row-cols-1 g-2"></div>
         
@@ -120,10 +108,10 @@
             <form>
                 
                 <label for="podNumb" class="form-label" style="font-size: x-large;">Number:</label>
-                <input type="number" id="podNumb" name="number" class="form-control" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
+                <input type="number" id="podNumb" name="number" class="form-control text-secondary" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
                 
                 <label for="podGuests" class="form-label" style="font-size: x-large;">Guests:</label>
-                <input type="text" id="podGuests" name="guests" class="form-control" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
+                <input type="text" id="podGuests" name="guests" class="form-control text-secondary" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
                 <br>
 
                 <label for="category" class= "form-label" style="font-size: x-large;">Category:</label> 
@@ -186,10 +174,10 @@
         <h2>UPDATE-A-POD</h2>
             <form>
                 <label for="podNumb" class="form-label" style="font-size: x-large;">Number:</label>
-                <input type="number" id="podNumb" name="number" class="form-control" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
+                <input type="number" id="podNumb" name="number" class="form-control text-secondary" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
                 
                 <label for= "podGuests" class="form-label" style="font-size: x-large;">Guests:</label>
-                <input type="text" id="podGuests" name="guests" class="form-control" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
+                <input type="text" id="podGuests" name="guests" class="form-control text-secondary" style="background-color: rgba(110, 61, 61, 0.315); border-color: rgb(236, 99, 81);" required>
                 <br>
 
                 <label for="category" class= "form-label" style="font-size: x-large;">Category:</label> 

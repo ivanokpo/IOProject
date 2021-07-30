@@ -129,6 +129,13 @@ const renderPodcast = (joe, outputDiv) => {
             newPod.appendChild(img);
 
         }
+
+        else if (joe.category === "archery"){
+            const img = document.createElement("img");
+            img.src = "https://images.pexels.com/photos/733327/pexels-photo-733327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+            img.classList.add("card-img-top");
+            newPod.appendChild(img);
+        }
     }
 
     categoryimage();
