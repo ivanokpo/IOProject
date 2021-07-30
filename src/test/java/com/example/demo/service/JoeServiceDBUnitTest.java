@@ -43,7 +43,7 @@ public class JoeServiceDBUnitTest {
 
 		Joe actual = this.service.updatePodcast(id, testNewPod);
 		// THEN
-		assertThat(actual).isEqualTo(testNewPod);
+		Assertions.assertThat(actual).isEqualTo(testNewPod);
 
 		Mockito.verify(this.repo, Mockito.times(1)).findById(id);
 		Mockito.verify(this.repo, Mockito.times(1)).save(new Joe(id, 1664,"Josh Dubin, David Blaine","Activists", 5, "yes"));
@@ -68,11 +68,11 @@ public class JoeServiceDBUnitTest {
 	void testCreate() {
 		//GIVEN
 		Joe newPod = new Joe(1664,"Josh Dubin, David Blaine","Activists", 5, "yes");
-		Joe savedPod = new Joe(1664,"Josh Dubin, David Blaine","Activists", 5, "yes");
+		Joe savedPod = new Joe(1, 1664,"Josh Dubin, David Blaine","Activists", 5, "yes");
 		//WHEN
 		Mockito.when(this.repo.save(newPod)).thenReturn(savedPod);
 		//THEN
-		 Assertions.assertThat(this.service.createPodcast(new Joe(1664,"Josh Dubin, David Blaine","Activists", 5, "yes"))).isEqualTo(new Joe(1664,"Josh Dubin, David Blaine","Activists", 5, "yes"));
+		 assertThat(this.service.createPodcast(newPod)).isEqualTo(savedPod);
 		 Mockito.verify(this.repo, Mockito.times(1)).save(newPod);
 	
 	
@@ -80,16 +80,14 @@ public class JoeServiceDBUnitTest {
 	
 	@Test
 	void testGet() {
-		int id = 1;
-		Joe testPod = new Joe(id, 1664,"Josh Dubin, David Blaine","Activists", 5, "yes");
+		List<Joe> testPodcasts = List.of(new Joe(1664,"Josh Dubin, David Blaine","Activists", 5, "yes"));
+
 		
-		Mockito.when(this.repo.findById(1).get()).thenReturn(testPod);
-		Joe actual = this.service.updatePodcast(id, testPod);
-		
-		assertThat(actual).isEqualTo(testPod);
-		
-		Mockito.verify(this.repo, Mockito.times(1)).findById(1);
+		Mockito.when(this.repo.findAll()).thenReturn(testPodcasts);
+
+		assertThat(this.service.podcasts().equals(testPodcasts));
+
+		Mockito.verify(this.repo, Mockito.times(1)).findAll();
 	}
-	
 	
 }

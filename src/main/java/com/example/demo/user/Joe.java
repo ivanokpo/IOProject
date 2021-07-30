@@ -13,6 +13,12 @@ import javax.persistence.Entity;
 @Entity
 public class Joe {
 	
+	@Override
+	public String toString() {
+		return "Joe [id=" + id + ", podcast_Number=" + podcast_Number + ", guests=" + guests + ", category=" + category
+				+ ", rating=" + rating + ", favorite=" + favorite + "]";
+	}
+
 	@Id // Primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT
 	private Integer id;
