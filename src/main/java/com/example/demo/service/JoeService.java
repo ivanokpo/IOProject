@@ -12,7 +12,7 @@ public interface JoeService {
 	
 	public Joe findPodcastById(Integer id);
 	
-	public Joe findPodcastByNum(String number);
+	public Joe findPodcastByNum(String podcast_Number);
 	
 	public List<Joe> findPodcastByCat(String category);
 	
@@ -20,7 +20,7 @@ public interface JoeService {
 	
 	public String deletePodcast(Integer id);
 
-	public Joe updatePodcast(Integer id, Joe podcast);
+	public Joe updatePodcast(Integer podcast_Number, Joe podcast);
 	
 	public List<Joe> favoritesP();
 	
